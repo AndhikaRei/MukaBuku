@@ -42,13 +42,18 @@ namespace SocialGraph
             G.readFromFile("1");
             //MessageBox.Show(Parser.files[0]);
             //string coba = "";
-            //foreach(string name in Parser.uniqueName)
+            //foreach (string name in Parser.uniqueName)
             //{
             //    coba += name;
             //    coba += " \n";
             //}
             //MessageBox.Show(coba);
             MessageBox.Show(Parser.result.printGraph());
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
