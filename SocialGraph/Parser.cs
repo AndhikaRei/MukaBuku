@@ -15,7 +15,7 @@ namespace ParserComponent
         public static string[] files;
         public void readFromFile(string name)
         {
-            files = System.IO.File.ReadAllLines("../"+name + ".txt");
+            files = System.IO.File.ReadAllLines(name);
 
             numOfEdge = Convert.ToInt32(files[0]);
             uniqueName = new List<string>();

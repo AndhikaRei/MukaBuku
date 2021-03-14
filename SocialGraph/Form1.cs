@@ -39,7 +39,7 @@ namespace SocialGraph
         private void buttonEnter_Clicked(object sender, EventArgs e)
         {
             Parser G = new Parser();
-            G.readFromFile("1");
+            G.readFromFile(this.textBox1.Text);
             //MessageBox.Show(Parser.files[0]);
             //string coba = "";
             //foreach (string name in Parser.uniqueName)
@@ -50,10 +50,16 @@ namespace SocialGraph
             //MessageBox.Show(coba);
             MessageBox.Show(Parser.result.printGraph());
         }
-
-        private void label1_Click(object sender, EventArgs e)
+        
+        private void buttonBrowse_Click(object sender, EventArgs e)
         {
-
+            OpenFileDialog browse = new OpenFileDialog();
+            DialogResult browseDialog = browse.ShowDialog();
+            if (browseDialog == DialogResult.OK)
+            {
+                this.textBox1.Text = browse.FileName;
+            }
+            
         }
     }
 }
