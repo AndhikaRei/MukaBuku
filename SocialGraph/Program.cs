@@ -18,7 +18,8 @@ namespace SocialGraph
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Coba());
+            Application.Run(new GUI_Mukabuku());
+            
             Console.WriteLine("test");
             Console.ReadLine();
         }
