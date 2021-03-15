@@ -48,9 +48,12 @@ public class BFS
         Queue<ElQueue> queue_person = new Queue<ElQueue>();
         ElQueue current_person = new ElQueue(person);
         List<string> has_visited = new List<string>();
+
+        queue_person.Enqueue(current_person); // Inisialisasi queue: diisi elemen
         while (!current_person.getName().Equals(second_person.name) && queue_person.Count > 0) // Looping sampe ketemu yg sama atau gaada person yg bisa dikunjungi lagi. Problem: dia bakal exit kalo nemu yg pertama kali, pdhl bisa aja ketemu tp blm dicek
         {
-            has_visited.Add(current_person.getName());
+            has_visited.Add(current_person.getName()); // Nambah elemen has_visited
+            current_person = queue_person.Dequeue(); // Dequeue
             foreach (string friend in current_person.person.friends) // Looping untuk semua friend di current person
             {
                 Node second_Node = G.persons.Find(p => p.name.Equals(friend)); // Mencari Node friend
@@ -59,7 +62,7 @@ public class BFS
                 next_El.addConnection(current_person.person.name); // Menambah urutan connection dari person ke current_person
                 queue_person.Enqueue(next_El); //Masukin ke queue
             }
-            current_person = queue_person.Dequeue(); // Dequeue untuk next element yg dicek
+            current_person = queue_person.Peek(); // Peek untuk ngecek element terdepan
         }
 
         List<string> output = new List<string>();

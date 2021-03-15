@@ -22,6 +22,7 @@ namespace ElementQueue
             //    person.friends.Add(pname);
             //}
             this.person = new Node(new_person);
+            this.connection = new List<string>();
         }
 
         public void addConnection(string name)
