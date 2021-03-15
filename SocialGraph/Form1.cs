@@ -123,7 +123,8 @@ namespace SocialGraph
             this.activeSidebar.Height = this.friendsRecomendation.Height;
             foreach (Node person in Parser.result.persons)
             {
-                this.dropdownRecommend.Items.Add(person.name);
+                if(!this.dropdownRecommend.Items.Contains(person.name))
+                    this.dropdownRecommend.Items.Add(person.name);
             }
         }
 
@@ -131,14 +132,16 @@ namespace SocialGraph
         {
             hideAll();
             this.dropdownPerson1.Show(); this.dropdownPerson2.Show(); this.groupBox1.Show(); this.buttonSubmitExplore.Show();
-            this.person1Text.Show(); this.person2Text.Show(); this.alertExplore.Show();
+            this.person1Text.Show(); this.person2Text.Show(); this.alertExplore.Show(); this.graphgui2.Show();
             removeGraphImage(graphgui2);
             this.activeSidebar.Top = this.exploreFriend.Top;
             this.activeSidebar.Height = this.exploreFriend.Height;
             foreach(Node person in Parser.result.persons)
             {
-                this.dropdownPerson1.Items.Add(person.name);
-                this.dropdownPerson2.Items.Add(person.name);
+                if (!this.dropdownPerson1.Items.Contains(person.name))
+                    this.dropdownPerson1.Items.Add(person.name);
+                if (!this.dropdownPerson2.Items.Contains(person.name))
+                    this.dropdownPerson2.Items.Add(person.name);
             }
 
         }
