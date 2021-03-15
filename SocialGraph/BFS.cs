@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class BFS
 {
-    public void friendRecommendation(Graph G, Node person)
+    public string friendRecommendation(Graph G, Node person)
     {
         Dictionary<string,int> recommend = new Dictionary<string,int>(); // Key of recommended friend dgn value jumlah mutual friend
         foreach (string friend in person.friends)
@@ -26,22 +26,25 @@ public class BFS
                 }
             }
         }
-        //s
+
+        string output = "";
         foreach (var second_friend in recommend)
         {
-            Console.WriteLine(second_friend.Key);
-            Console.Write(second_friend.Value + " mutual friends: ");
+            output += second_friend.Key + "\nmutual friends: ";
             Node newFriend = G.persons.Find(p => p.name.Equals(second_friend)); // Nyari node  dgn name = second_friend
             List<string> filtered = person.friends.FindAll(e => newFriend.friends.Exists(t => t.Equals(e))); // Ngefilter list jadi isinya mutual friend
-            filtered.ForEach(Console.Write);
-            Console.WriteLine();
-
-            //note: konsepnya mau nge"dive" 2 kali buat node person
+            foreach (string name in filtered)
+            {
+                output += name + " ";
+            }
+            output += "\n";
         }
+        return output;
     }
 
-    public void exploreFriend(Graph G, Node person, Node second_person)
+    public List<string> exploreFriend(Graph G, Node person, Node second_person, out bool found)
     {
+        found = false;
         Queue<ElQueue> queue_person = new Queue<ElQueue>();
         ElQueue current_person = new ElQueue(person);
         List<string> has_visited = new List<string>();
@@ -59,19 +62,19 @@ public class BFS
             current_person = queue_person.Dequeue(); // Dequeue untuk next element yg dicek
         }
 
-        // Print hasil
+        List<string> output = new List<string>();
         if (!current_person.getName().Equals(second_person.name))
         {
-            Console.WriteLine("Tidak ditemukan koneksi");
+            return output;
         }
         else
         {
-            Console.Write(person.name);
+            found = true;
             foreach (string name in current_person.connection)
             {
-                Console.Write("->" + name);
+                output.Add(name);
             }
-            Console.WriteLine(current_person.getName());
+            return output;
         }
         
     }
