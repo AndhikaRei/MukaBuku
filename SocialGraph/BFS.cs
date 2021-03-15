@@ -45,7 +45,7 @@ public class BFS
         Queue<ElQueue> queue_person = new Queue<ElQueue>();
         ElQueue current_person = new ElQueue(person);
         List<string> has_visited = new List<string>();
-        while (!current_person.getName().Equals(second_person.name) || queue_person.Count > 0) // Looping sampe ketemu yg sama atau gaada person yg bisa dikunjungi lagi. Problem: dia bakal exit kalo nemu yg pertama kali, pdhl bisa aja ketemu tp blm dicek
+        while (!current_person.getName().Equals(second_person.name) && queue_person.Count > 0) // Looping sampe ketemu yg sama atau gaada person yg bisa dikunjungi lagi. Problem: dia bakal exit kalo nemu yg pertama kali, pdhl bisa aja ketemu tp blm dicek
         {
             has_visited.Add(current_person.getName());
             foreach (string friend in current_person.person.friends) // Looping untuk semua friend di current person
@@ -60,7 +60,7 @@ public class BFS
         }
 
         // Print hasil
-        if (queue_person.Count == 0 && current_person.getName().Equals(second_person.name))
+        if (!current_person.getName().Equals(second_person.name))
         {
             Console.WriteLine("Tidak ditemukan koneksi");
         }
