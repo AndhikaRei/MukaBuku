@@ -9,7 +9,7 @@ namespace ParserComponent
 {
     public class Parser
     {
-        public static Graph result;
+        public static Graph result = new Graph();
         public static int numOfEdge;
         public static List<string> uniqueName;
         public static string[] files;

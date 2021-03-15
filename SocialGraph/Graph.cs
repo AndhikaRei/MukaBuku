@@ -35,6 +35,10 @@ namespace GraphComponent
     public class Graph
     {
         public List<Node> persons;
+        public Graph()
+        {
+            this.persons = new List<Node>();
+        }
         public Graph(List<Node> persons2)
         {
             this.persons = new List<Node>();

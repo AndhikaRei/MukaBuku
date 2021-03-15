@@ -153,8 +153,21 @@ namespace SocialGraph
 
         private void buttonSubmitExplore_Click(object sender, EventArgs e)
         {
-            string algo = (this.Bfsbutton.Checked) ? "BFS" : "DFS";
-            MessageBox.Show("Melakukan pencarian dari " + this.dropdownPerson1.Text+" ke "+this.dropdownPerson2.Text+" dengan algoritma "+algo);
+            //string algo = (this.Bfsbutton.Checked) ? "BFS" : "DFS";
+            //MessageBox.Show("Melakukan pencarian dari " + this.dropdownPerson1.Text+" ke "+this.dropdownPerson2.Text+" dengan algoritma "+algo);
+            Node person1 = Parser.result.persons.Find(p => p.name.Equals(dropdownPerson1.Text));
+            Node person2 = Parser.result.persons.Find(p => p.name.Equals(dropdownPerson2.Text));
+            bool found;
+            if (this.Bfsbutton.Checked)
+            {
+                List<string> path= BFS.exploreFriend(Parser.result, person1, person2, out found);
+                if (found)
+                {
+                    string concat = string.Join(", ", path.ToArray());
+                    MessageBox.Show(concat);
+                }
+            }
+            
         }
 
         private void label1_Click_3(object sender, EventArgs e)

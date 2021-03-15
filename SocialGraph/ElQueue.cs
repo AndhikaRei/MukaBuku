@@ -12,9 +12,9 @@ namespace ElementQueue
         public ElQueue(Node new_person)
         {
             person.name = new_person.name; 
-            foreach (string name in new_person.friends)
+            foreach (string pname in new_person.friends)
             {
-                person.friends.Add(name);
+                person.friends.Add(pname);
             }
         }
 

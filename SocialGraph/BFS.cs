@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class BFS
 {
-    public string friendRecommendation(Graph G, Node person)
+    public static string friendRecommendation(Graph G, Node person)
     {
         Dictionary<string,int> recommend = new Dictionary<string,int>(); // Key of recommended friend dgn value jumlah mutual friend
         foreach (string friend in person.friends)
@@ -42,7 +42,7 @@ public class BFS
         return output;
     }
 
-    public List<string> exploreFriend(Graph G, Node person, Node second_person, out bool found)
+    public static List<string> exploreFriend(Graph G, Node person, Node second_person, out bool found)
     {
         found = false;
         Queue<ElQueue> queue_person = new Queue<ElQueue>();

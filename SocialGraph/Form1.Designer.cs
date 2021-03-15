@@ -65,7 +65,7 @@ namespace SocialGraph
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Location = new System.Drawing.Point(325, 97);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(638, 27);
+            this.textBox1.Size = new System.Drawing.Size(638, 23);
             this.textBox1.TabIndex = 0;
             this.textBox1.Visible = false;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
@@ -206,11 +206,11 @@ namespace SocialGraph
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 33F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Font = new System.Drawing.Font("Bebas Neue", 33F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label2.Location = new System.Drawing.Point(12, 47);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(290, 63);
+            this.label2.Size = new System.Drawing.Size(173, 53);
             this.label2.TabIndex = 10;
             this.label2.Text = "MukaBuku";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -232,7 +232,7 @@ namespace SocialGraph
             this.alertMasukkanGraf.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.alertMasukkanGraf.Location = new System.Drawing.Point(229, 43);
             this.alertMasukkanGraf.Name = "alertMasukkanGraf";
-            this.alertMasukkanGraf.Size = new System.Drawing.Size(667, 46);
+            this.alertMasukkanGraf.Size = new System.Drawing.Size(516, 34);
             this.alertMasukkanGraf.TabIndex = 11;
             this.alertMasukkanGraf.Text = "Masukkan file graf yang ingin diproses.\r\nPastikan anda juga menekan tombol visual" +
     "isasi agar graf dapat terproses dengan baik.";
@@ -243,7 +243,7 @@ namespace SocialGraph
             this.dropdownPerson1.FormattingEnabled = true;
             this.dropdownPerson1.Location = new System.Drawing.Point(305, 196);
             this.dropdownPerson1.Name = "dropdownPerson1";
-            this.dropdownPerson1.Size = new System.Drawing.Size(121, 28);
+            this.dropdownPerson1.Size = new System.Drawing.Size(121, 23);
             this.dropdownPerson1.TabIndex = 12;
             this.dropdownPerson1.Visible = false;
             // 
@@ -252,7 +252,7 @@ namespace SocialGraph
             this.dropdownPerson2.FormattingEnabled = true;
             this.dropdownPerson2.Location = new System.Drawing.Point(305, 238);
             this.dropdownPerson2.Name = "dropdownPerson2";
-            this.dropdownPerson2.Size = new System.Drawing.Size(121, 28);
+            this.dropdownPerson2.Size = new System.Drawing.Size(121, 23);
             this.dropdownPerson2.TabIndex = 13;
             this.dropdownPerson2.Visible = false;
             // 
@@ -261,7 +261,7 @@ namespace SocialGraph
             this.person1Text.AutoSize = true;
             this.person1Text.Location = new System.Drawing.Point(204, 199);
             this.person1Text.Name = "person1Text";
-            this.person1Text.Size = new System.Drawing.Size(116, 20);
+            this.person1Text.Size = new System.Drawing.Size(95, 15);
             this.person1Text.TabIndex = 14;
             this.person1Text.Text = "Choose Account";
             this.person1Text.Visible = false;
@@ -272,7 +272,7 @@ namespace SocialGraph
             this.person2Text.AutoSize = true;
             this.person2Text.Location = new System.Drawing.Point(204, 241);
             this.person2Text.Name = "person2Text";
-            this.person2Text.Size = new System.Drawing.Size(102, 20);
+            this.person2Text.Size = new System.Drawing.Size(80, 15);
             this.person2Text.TabIndex = 15;
             this.person2Text.Text = "Explore friend";
             this.person2Text.Visible = false;
@@ -294,7 +294,7 @@ namespace SocialGraph
             this.Dfsbutton.AutoSize = true;
             this.Dfsbutton.Location = new System.Drawing.Point(70, 22);
             this.Dfsbutton.Name = "Dfsbutton";
-            this.Dfsbutton.Size = new System.Drawing.Size(56, 24);
+            this.Dfsbutton.Size = new System.Drawing.Size(45, 19);
             this.Dfsbutton.TabIndex = 1;
             this.Dfsbutton.TabStop = true;
             this.Dfsbutton.Text = "DFS";
@@ -305,7 +305,7 @@ namespace SocialGraph
             this.Bfsbutton.AutoSize = true;
             this.Bfsbutton.Location = new System.Drawing.Point(6, 22);
             this.Bfsbutton.Name = "Bfsbutton";
-            this.Bfsbutton.Size = new System.Drawing.Size(54, 24);
+            this.Bfsbutton.Size = new System.Drawing.Size(44, 19);
             this.Bfsbutton.TabIndex = 0;
             this.Bfsbutton.TabStop = true;
             this.Bfsbutton.Text = "BFS";
@@ -329,7 +329,7 @@ namespace SocialGraph
             this.personText.AutoSize = true;
             this.personText.Location = new System.Drawing.Point(204, 446);
             this.personText.Name = "personText";
-            this.personText.Size = new System.Drawing.Size(105, 20);
+            this.personText.Size = new System.Drawing.Size(86, 15);
             this.personText.TabIndex = 18;
             this.personText.Text = "Choose Person";
             this.personText.Visible = false;
@@ -340,7 +340,7 @@ namespace SocialGraph
             this.dropdownRecommend.FormattingEnabled = true;
             this.dropdownRecommend.Location = new System.Drawing.Point(305, 443);
             this.dropdownRecommend.Name = "dropdownRecommend";
-            this.dropdownRecommend.Size = new System.Drawing.Size(121, 28);
+            this.dropdownRecommend.Size = new System.Drawing.Size(121, 23);
             this.dropdownRecommend.TabIndex = 19;
             this.dropdownRecommend.Visible = false;
             // 
@@ -362,9 +362,9 @@ namespace SocialGraph
             this.alertExplore.AutoSize = true;
             this.alertExplore.BackColor = System.Drawing.SystemColors.Info;
             this.alertExplore.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.alertExplore.Location = new System.Drawing.Point(204, 141);
+            this.alertExplore.Location = new System.Drawing.Point(204, 148);
             this.alertExplore.Name = "alertExplore";
-            this.alertExplore.Size = new System.Drawing.Size(306, 46);
+            this.alertExplore.Size = new System.Drawing.Size(234, 34);
             this.alertExplore.TabIndex = 21;
             this.alertExplore.Text = "Masukkan orang yang akan dieksplor\r\nPastikan anda sudah memasukkan graf";
             this.alertExplore.Visible = false;
@@ -377,7 +377,7 @@ namespace SocialGraph
             this.alertRecomen.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.alertRecomen.Location = new System.Drawing.Point(204, 379);
             this.alertRecomen.Name = "alertRecomen";
-            this.alertRecomen.Size = new System.Drawing.Size(268, 69);
+            this.alertRecomen.Size = new System.Drawing.Size(207, 51);
             this.alertRecomen.TabIndex = 22;
             this.alertRecomen.Text = "Masukkan orang yang akan \r\ndicari rekomendasi Pastikan anda \r\nsudah memasukkan gr" +
     "af.";

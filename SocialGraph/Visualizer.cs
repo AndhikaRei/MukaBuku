@@ -40,7 +40,9 @@ namespace SocialGraph
                 {
                     if (String.CompareOrdinal(person.name, friend) < 0)
                     {
-                        graph.AddEdge(person.name, friend);
+                        var edge = graph.AddEdge(person.name, friend);
+                        edge.Attr.ArrowheadAtTarget = Microsoft.Msagl.Drawing.ArrowStyle.None;
+                        edge.Attr.ArrowheadAtSource = Microsoft.Msagl.Drawing.ArrowStyle.None;
                     }
                 }
             }
