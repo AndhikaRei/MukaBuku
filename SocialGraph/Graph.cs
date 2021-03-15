@@ -11,7 +11,18 @@ namespace GraphComponent
         public List<string> friends;
 
 
-        
+        public Node()
+        {
+            this.name = "";
+            this.friends = new List<string>();
+        }
+        public Node(Node b)
+        {
+            this.name = b.name;
+            this.friends = new List<string>();
+            foreach (string fname in b.friends)
+                this.friends.Add(fname);
+        }
         public Node(string name, List<string>friendsName)
         {
             this.name = name;

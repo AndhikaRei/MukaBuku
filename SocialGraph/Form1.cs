@@ -165,6 +165,9 @@ namespace SocialGraph
                 {
                     string concat = string.Join(", ", path.ToArray());
                     MessageBox.Show(concat);
+                } else
+                {
+                    MessageBox.Show("Ga ketemu lur");
                 }
             }
             
