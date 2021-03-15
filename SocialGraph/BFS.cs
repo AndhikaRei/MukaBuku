@@ -44,12 +44,15 @@ public class BFS
     {
         Queue<ElQueue> queue_person = new Queue<ElQueue>();
         ElQueue current_person = new ElQueue(person);
-        while (!current_person.getName().Equals(second_person.name)) // Looping sampe ketemu yg sama
+        List<string> has_visited = new List<string>();
+        while (!current_person.getName().Equals(second_person.name) || current_person.person.friends.Count > 0) // Looping sampe ketemu yg sama atau gaada person yg bisa dikunjungi lagi. Problem: dia bakal exit kalo nemu yg pertama kali, pdhl bisa aja ketemu tp blm dicek
         {
+            has_visited.Add(current_person.getName());
             foreach (string friend in current_person.person.friends) // Looping untuk semua friend di current person
             {
                 Node second_Node = G.persons.Find(p => p.name.Equals(friend)); // Mencari Node friend
-                ElQueue next_El = new ElQueue(second_Node); 
+                ElQueue next_El = new ElQueue(second_Node);
+                next_El.person.friends = next_El.person.friends.FindAll(p => !has_visited.Exists(e => e.Equals(p))); // Ngefilter friend yang ada di list has_visited
                 next_El.addConnection(current_person.person.name); // Menambah urutan connection dari person ke current_person
                 queue_person.Enqueue(next_El); //Masukin ke queue
             }
