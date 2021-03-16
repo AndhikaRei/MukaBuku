@@ -163,7 +163,7 @@ namespace SocialGraph
                 List<string> path= BFS.exploreFriend(Parser.result, person1, person2, out found);
                 if (found)
                 {
-                    string concat = string.Join(", ", path.ToArray());
+                    string concat = String.Join(", ", path.ToArray());
                     MessageBox.Show(concat);
                 } else
                 {
@@ -185,7 +185,10 @@ namespace SocialGraph
 
         private void buttonRecomen_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("mencari rekomendari dari " + this.dropdownRecommend.Text);
+            //MessageBox.Show("mencari rekomendari dari " + this.dropdownRecommend.Text);
+            Node person = Parser.result.persons.Find(p => p.name.Equals(dropdownRecommend.Text));
+            string rekomen = BFS.friendRecommendation(Parser.result, person);
+            MessageBox.Show(rekomen);
         }
     }
 }
