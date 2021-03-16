@@ -59,10 +59,18 @@ public class BFS
                 Node second_Node = G.persons.Find(p => p.name.Equals(friend)); // Mencari Node friend
                 ElQueue next_El = new ElQueue(second_Node);
                 next_El.person.friends = next_El.person.friends.FindAll(p => !has_visited.Exists(e => e.Equals(p))); // Ngefilter friend yang ada di list has_visited
+                foreach (string past_friend in current_person.connection)
+                {
+                    next_El.addConnection(past_friend); // Nambah person2 sebelumnya ke list connection
+                }
                 next_El.addConnection(current_person.person.name); // Menambah urutan connection dari person ke current_person
                 queue_person.Enqueue(next_El); //Masukin ke queue
             }
-            current_person = queue_person.Peek(); // Peek untuk ngecek element terdepan
+            if (queue_person.Count > 0)
+            {
+                current_person = queue_person.Peek(); // Peek untuk ngecek element terdepan
+            }
+            
         }
 
         List<string> output = new List<string>();
@@ -77,6 +85,7 @@ public class BFS
             {
                 output.Add(name);
             }
+            output.Add(current_person.getName());
             return output;
         }
         
