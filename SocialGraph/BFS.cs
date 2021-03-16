@@ -30,8 +30,16 @@ public class BFS
         string output = "";
         foreach (var second_friend in recommend)
         {
-            output += second_friend.Key + "\n" + second_friend.Value + " mutual friends: ";
-            Node newFriend = G.persons.Find(p => p.name.Equals(second_friend)); // Nyari node  dgn name = second_friend
+            output += second_friend.Key + "\n" + second_friend.Value + " mutual "; 
+            if (second_friend.Value == 1)
+            {
+                output += "friend: ";
+            }
+            else
+            {
+                output += "friends: ";
+            }
+            Node newFriend = G.persons.Find(p => p.name.Equals(second_friend.Key)); // Nyari node  dgn name = second_friend
             List<string> filtered = person.friends.FindAll(e => newFriend.friends.Exists(t => t.Equals(e))); // Ngefilter list jadi isinya mutual friend
             foreach (string name in filtered)
             {
