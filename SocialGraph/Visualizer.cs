@@ -69,14 +69,16 @@ namespace SocialGraph
                         if (path.Contains(friend) && path.Contains(person.name)){
                             if (Math.Abs(path.IndexOf(person.name) - path.IndexOf(friend)) == 1)
                             {
-                                edge.Attr.Color = Microsoft.Msagl.Drawing.Color.Green;
-                                edge.Attr.LineWidth = 10;
+                                edge.Attr.Color = Microsoft.Msagl.Drawing.Color.Crimson;
+                                edge.Attr.LineWidth = 2;
                                 Microsoft.Msagl.Drawing.Node p1 = graph.FindNode(person.name);
                                 Microsoft.Msagl.Drawing.Node p2 = graph.FindNode(friend);
-                                p1.Attr.FillColor = Microsoft.Msagl.Drawing.Color.MistyRose;
-                                p2.Attr.FillColor = Microsoft.Msagl.Drawing.Color.MistyRose;
+                                p1.Attr.FillColor = Microsoft.Msagl.Drawing.Color.Crimson;
+                                p2.Attr.FillColor = Microsoft.Msagl.Drawing.Color.Crimson;
                                 p1.Attr.Shape = Microsoft.Msagl.Drawing.Shape.Octagon; 
                                 p2.Attr.Shape = Microsoft.Msagl.Drawing.Shape.Octagon;
+                                p1.Attr.LineWidth = 2;
+                                p2.Attr.LineWidth = 2;
                             }
                         }
                     }
