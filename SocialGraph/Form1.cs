@@ -18,22 +18,23 @@ namespace SocialGraph
         
         public void removeGraphImage(GraphGUI G)
         {
-            if (G.Controls.Contains(Visualizer.viewer))
-                G.Controls.Remove(Visualizer.viewer);
+            if (G.Controls.Contains(Visualizer.ExploreGraph))
+                G.Controls.Remove(Visualizer.ExploreGraph);
             if (G.Controls.Contains(Visualizer.NormalGraph))
-                G.Controls.Remove(Visualizer.NormalGraph);
+                G.Controls.Remove(Visualizer.NormalGraph);           
         }
         public void hideAll()
         {
             this.graphgui2.Hide();
-            this.textBox1.Hide(); this.buttonEnter.Hide(); this.buttonBrowse.Hide(); this.alertMasukkanGraf.Hide();
-            this.dropdownPerson1.Hide(); this.dropdownPerson2.Hide(); this.groupBox1.Hide(); this.buttonSubmitExplore.Hide();
-            this.person1Text.Hide(); this.person2Text.Hide(); this.alertExplore.Hide();
-            this.dropdownRecommend.Hide(); this.alertRecomen.Hide();this.personText.Hide(); this.buttonRecomen.Hide();
+            this.creator1.Hide();
+            this.boxMasukkanGraf.Hide(); this.boxExploreFriends.Hide(); this.boxFriendsRecomendatition.Hide();
         }
         public GUI_Mukabuku()
         {
             InitializeComponent();
+            this.creator1.Show();
+            this.creator1.Top = this.panel2.Bottom;
+            this.creator1.Height = this.panel1.Height;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -45,13 +46,6 @@ namespace SocialGraph
         {
 
         }
-        private void buttonEscape_Clicked(object sender, EventArgs e){
-            Visualizer.visualTest();
-            this.graphgui2.SuspendLayout();
-            removeGraphImage(graphgui2);
-            this.graphgui2.Controls.Add(Visualizer.viewer);
-            this.graphgui2.ResumeLayout();
-        }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
@@ -59,13 +53,18 @@ namespace SocialGraph
         }
         private void buttonEnter_Clicked(object sender, EventArgs e)
         {
-            Parser G = new Parser();
-            G.readFromFile(this.textBox1.Text);
-            Visualizer.visualNormal(Parser.result);
-            this.graphgui2.SuspendLayout();
-            removeGraphImage(graphgui2);
-            this.graphgui2.Controls.Add(Visualizer.NormalGraph);
-            this.graphgui2.ResumeLayout();
+            if (this.textBox1.Text != ""){
+                Parser G = new Parser();
+                G.readFromFile(this.textBox1.Text);
+                Visualizer.visualNormal(Parser.result);
+                this.graphgui2.SuspendLayout();
+                removeGraphImage(graphgui2);
+                this.graphgui2.Controls.Add(Visualizer.NormalGraph);
+                this.graphgui2.ResumeLayout();
+            } else{
+                MessageBox.Show("Anda harus mengisi path filenya");
+            }
+            
 
         }
         
@@ -100,8 +99,7 @@ namespace SocialGraph
         {
             hideAll();
             this.graphgui2.Show();
-            this.textBox1.Show(); this.buttonEnter.Show(); this.buttonBrowse.Show(); this.alertMasukkanGraf.Show();
-
+            this.boxMasukkanGraf.Show(); 
             this.activeSidebar.Top = this.inputGraph.Top;
             this.activeSidebar.Height = this.inputGraph.Height;
             
@@ -110,6 +108,8 @@ namespace SocialGraph
         private void creator_Click(object sender, EventArgs e)
         {
             hideAll();
+            this.creator1.Show();
+            this.creator1.Top = this.panel2.Bottom;
             this.activeSidebar.Top = this.creator.Top;
             this.activeSidebar.Height = this.creator.Height; 
         }
@@ -117,8 +117,8 @@ namespace SocialGraph
         private void friendsRecomendation_Click(object sender, EventArgs e)
         {
             hideAll();
-            this.dropdownRecommend.Show(); this.alertRecomen.Show(); this.personText.Show(); this.buttonRecomen.Show();
-            removeGraphImage(graphgui2);
+            this.boxFriendsRecomendatition.Show();
+            this.boxFriendsRecomendatition.Top = this.boxExploreFriends.Top;
             this.activeSidebar.Top = this.friendsRecomendation.Top;
             this.activeSidebar.Height = this.friendsRecomendation.Height;
             foreach (Node person in Parser.result.persons)
@@ -131,8 +131,8 @@ namespace SocialGraph
         private void exploreFriend_Click(object sender, EventArgs e)
         {
             hideAll();
-            this.dropdownPerson1.Show(); this.dropdownPerson2.Show(); this.groupBox1.Show(); this.buttonSubmitExplore.Show();
-            this.person1Text.Show(); this.person2Text.Show(); this.alertExplore.Show(); this.graphgui2.Show();
+            this.graphgui2.Show();
+            this.boxExploreFriends.Show();
             removeGraphImage(graphgui2);
             this.activeSidebar.Top = this.exploreFriend.Top;
             this.activeSidebar.Height = this.exploreFriend.Height;
@@ -153,24 +153,39 @@ namespace SocialGraph
 
         private void buttonSubmitExplore_Click(object sender, EventArgs e)
         {
-            //string algo = (this.Bfsbutton.Checked) ? "BFS" : "DFS";
-            //MessageBox.Show("Melakukan pencarian dari " + this.dropdownPerson1.Text+" ke "+this.dropdownPerson2.Text+" dengan algoritma "+algo);
             Node person1 = Parser.result.persons.Find(p => p.name.Equals(dropdownPerson1.Text));
             Node person2 = Parser.result.persons.Find(p => p.name.Equals(dropdownPerson2.Text));
             bool found;
-            if (this.Bfsbutton.Checked)
-            {
-                List<string> path= BFS.exploreFriend(Parser.result, person1, person2, out found);
+            if (dropdownPerson1.Text == "" || this.dropdownPerson2.Text == ""){
+                MessageBox.Show("Anda harus mengisi semua dropdown");
+            } else if (this.dropdownPerson2.Text == this.dropdownPerson1.Text){
+                MessageBox.Show("Anda harus memilih dua orang yang berbeda");
+            } else if (this.Bfsbutton.Checked){
+                List<string> path = BFS.exploreFriend(Parser.result, person1, person2, out found);
+                if (found){
+                    Visualizer.visualExplore(Parser.result, path);
+                    this.graphgui2.SuspendLayout();
+                    removeGraphImage(graphgui2);
+                    this.graphgui2.Controls.Add(Visualizer.ExploreGraph);
+                    this.graphgui2.ResumeLayout();
+                    this.pesanEksplore.Text = (path.Count-2)+" degree connection";  
+                } else {
+                    this.pesanEksplore.Text=("Tidak ada jalur koneksi yang tersedia ");
+                }
+            } else if (this.Dfsbutton.Checked){
+                List<string> path = BFS.exploreFriend(Parser.result, person1, person2, out found);
                 if (found)
                 {
-                    string concat = String.Join(", ", path.ToArray());
-                    MessageBox.Show(concat);
-                } else
-                {
-                    MessageBox.Show("Ga ketemu lur");
+                    Visualizer.visualExplore(Parser.result, path);
+                    this.graphgui2.SuspendLayout();
+                    removeGraphImage(graphgui2);
+                    this.graphgui2.Controls.Add(Visualizer.ExploreGraph);
+                    this.graphgui2.ResumeLayout();
+                    this.pesanEksplore.Text = (path.Count - 2) + " degree connection";
+                } else{
+                    this.pesanEksplore.Text = ("Tidak ada jalur koneksi yang tersedia ");
                 }
             }
-            
         }
 
         private void label1_Click_3(object sender, EventArgs e)
@@ -185,10 +200,14 @@ namespace SocialGraph
 
         private void buttonRecomen_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show("mencari rekomendari dari " + this.dropdownRecommend.Text);
-            Node person = Parser.result.persons.Find(p => p.name.Equals(dropdownRecommend.Text));
-            string rekomen = BFS.friendRecommendation(Parser.result, person);
-            MessageBox.Show(rekomen);
+            if(dropdownRecommend.Text != ""){
+                Node person = Parser.result.persons.Find(p => p.name.Equals(dropdownRecommend.Text));
+                string rekomen = BFS.friendRecommendation(Parser.result, person);
+                this.textRecomens.Text = rekomen;
+            } else{
+                MessageBox.Show("Anda harus mengisi dropdown");
+            }
+            
         }
     }
 }

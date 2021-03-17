@@ -27,6 +27,8 @@ namespace ParserComponent
                 if (!uniqueName.Contains(edges[1]))
                     uniqueName.Add(edges[1]);
             }
+
+            uniqueName.Sort();
             List<Node> persons = new List<Node>();
             
             foreach (string person in uniqueName)
@@ -40,6 +42,7 @@ namespace ParserComponent
                     if (edges[1].Equals(person) && !friends.Contains(edges[0]))
                         friends.Add(edges[0]);
                 }
+                friends.Sort();
                 persons.Add(new Node(person, friends));
                 
             }
