@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Linq;
 using GraphComponent;
 using ElementQueue;
 using System.Collections.Generic;
@@ -26,6 +26,8 @@ public class BFS
                 }
             }
         }
+
+        var sortedDict = from entry in recommend orderby entry.Value descending select entry;
 
         string output = "";
         foreach (var second_friend in recommend)
