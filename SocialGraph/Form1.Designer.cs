@@ -47,6 +47,7 @@ namespace SocialGraph
             this.person1Text = new System.Windows.Forms.Label();
             this.person2Text = new System.Windows.Forms.Label();
             this.boxExploreFriends = new System.Windows.Forms.GroupBox();
+            this.buttonExplore = new System.Windows.Forms.Button();
             this.textPilihMenu = new System.Windows.Forms.Label();
             this.Dfsbutton = new System.Windows.Forms.RadioButton();
             this.pesanEksplore = new System.Windows.Forms.TextBox();
@@ -60,6 +61,7 @@ namespace SocialGraph
             this.personText = new System.Windows.Forms.Label();
             this.dropdownRecommend = new System.Windows.Forms.ComboBox();
             this.boxMasukkanGraf = new System.Windows.Forms.GroupBox();
+            this.creator1 = new SocialGraph.Creator();
             this.panel1.SuspendLayout();
             this.boxExploreFriends.SuspendLayout();
             this.boxFriendsRecomendatition.SuspendLayout();
@@ -226,7 +228,7 @@ namespace SocialGraph
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(197, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(824, 25);
+            this.panel2.Size = new System.Drawing.Size(824, 27);
             this.panel2.TabIndex = 10;
             // 
             // alertMasukkanGraf
@@ -278,6 +280,9 @@ namespace SocialGraph
             // 
             // boxExploreFriends
             // 
+            this.boxExploreFriends.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.boxExploreFriends.Controls.Add(this.buttonExplore);
             this.boxExploreFriends.Controls.Add(this.textPilihMenu);
             this.boxExploreFriends.Controls.Add(this.Dfsbutton);
             this.boxExploreFriends.Controls.Add(this.pesanEksplore);
@@ -295,6 +300,16 @@ namespace SocialGraph
             this.boxExploreFriends.TabStop = false;
             this.boxExploreFriends.Text = "Explore friends";
             this.boxExploreFriends.Visible = false;
+            // 
+            // buttonExplore
+            // 
+            this.buttonExplore.Location = new System.Drawing.Point(395, 85);
+            this.buttonExplore.Name = "buttonExplore";
+            this.buttonExplore.Size = new System.Drawing.Size(121, 23);
+            this.buttonExplore.TabIndex = 25;
+            this.buttonExplore.Text = "Explore friend";
+            this.buttonExplore.UseVisualStyleBackColor = true;
+            this.buttonExplore.Click += new System.EventHandler(this.buttonSubmitExplore_Click);
             // 
             // textPilihMenu
             // 
@@ -339,9 +354,8 @@ namespace SocialGraph
             // 
             // buttonSubmitExplore
             // 
-            this.buttonSubmitExplore.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.buttonSubmitExplore.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonSubmitExplore.Location = new System.Drawing.Point(288, 86);
+            this.buttonSubmitExplore.Location = new System.Drawing.Point(288, -463);
             this.buttonSubmitExplore.Name = "buttonSubmitExplore";
             this.buttonSubmitExplore.Size = new System.Drawing.Size(145, 23);
             this.buttonSubmitExplore.TabIndex = 17;
@@ -354,7 +368,7 @@ namespace SocialGraph
             this.alertExplore.AutoSize = true;
             this.alertExplore.BackColor = System.Drawing.SystemColors.Info;
             this.alertExplore.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.alertExplore.Location = new System.Drawing.Point(6, 20);
+            this.alertExplore.Location = new System.Drawing.Point(6, 25);
             this.alertExplore.Name = "alertExplore";
             this.alertExplore.Size = new System.Drawing.Size(234, 34);
             this.alertExplore.TabIndex = 21;
@@ -363,6 +377,8 @@ namespace SocialGraph
             // 
             // boxFriendsRecomendatition
             // 
+            this.boxFriendsRecomendatition.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.boxFriendsRecomendatition.Controls.Add(this.textRecomens);
             this.boxFriendsRecomendatition.Controls.Add(this.buttonRecommen);
             this.boxFriendsRecomendatition.Controls.Add(this.alertRecomen);
@@ -427,6 +443,8 @@ namespace SocialGraph
             // 
             // boxMasukkanGraf
             // 
+            this.boxMasukkanGraf.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.boxMasukkanGraf.Controls.Add(this.buttonEnter);
             this.boxMasukkanGraf.Controls.Add(this.alertMasukkanGraf);
             this.boxMasukkanGraf.Controls.Add(this.textBox1);
@@ -439,10 +457,22 @@ namespace SocialGraph
             this.boxMasukkanGraf.Text = "Masukkan Graf";
             this.boxMasukkanGraf.Visible = false;
             // 
+            // creator1
+            // 
+            this.creator1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.creator1.Location = new System.Drawing.Point(197, 487);
+            this.creator1.Name = "creator1";
+            this.creator1.Size = new System.Drawing.Size(824, 438);
+            this.creator1.TabIndex = 14;
+            this.creator1.Visible = false;
+            // 
             // GUI_Mukabuku
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1021, 507);
+            this.Controls.Add(this.creator1);
             this.Controls.Add(this.boxFriendsRecomendatition);
             this.Controls.Add(this.boxExploreFriends);
             this.Controls.Add(this.panel2);
@@ -450,7 +480,7 @@ namespace SocialGraph
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.boxMasukkanGraf);
             this.Name = "GUI_Mukabuku";
-            this.Text = "Halo";
+            this.Text = "GUI Mukabuku";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -499,6 +529,8 @@ namespace SocialGraph
         private System.Windows.Forms.GroupBox boxFriendsRecomendatition;
         private System.Windows.Forms.Button buttonRecommen;
         private System.Windows.Forms.RichTextBox textRecomens;
+        private Creator creator1;
+        private System.Windows.Forms.Button buttonExplore;
     }
 }
 

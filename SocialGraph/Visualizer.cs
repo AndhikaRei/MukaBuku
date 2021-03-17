@@ -70,6 +70,7 @@ namespace SocialGraph
                             if (Math.Abs(path.IndexOf(person.name) - path.IndexOf(friend)) == 1)
                             {
                                 edge.Attr.Color = Microsoft.Msagl.Drawing.Color.Green;
+                                edge.Attr.LineWidth = 10;
                                 Microsoft.Msagl.Drawing.Node p1 = graph.FindNode(person.name);
                                 Microsoft.Msagl.Drawing.Node p2 = graph.FindNode(friend);
                                 p1.Attr.FillColor = Microsoft.Msagl.Drawing.Color.MistyRose;

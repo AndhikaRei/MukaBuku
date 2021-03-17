@@ -26,11 +26,15 @@ namespace SocialGraph
         public void hideAll()
         {
             this.graphgui2.Hide();
+            this.creator1.Hide();
             this.boxMasukkanGraf.Hide(); this.boxExploreFriends.Hide(); this.boxFriendsRecomendatition.Hide();
         }
         public GUI_Mukabuku()
         {
             InitializeComponent();
+            this.creator1.Show();
+            this.creator1.Top = this.panel2.Bottom;
+            this.creator1.Height = this.panel1.Height;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -104,6 +108,8 @@ namespace SocialGraph
         private void creator_Click(object sender, EventArgs e)
         {
             hideAll();
+            this.creator1.Show();
+            this.creator1.Top = this.panel2.Bottom;
             this.activeSidebar.Top = this.creator.Top;
             this.activeSidebar.Height = this.creator.Height; 
         }
@@ -112,6 +118,7 @@ namespace SocialGraph
         {
             hideAll();
             this.boxFriendsRecomendatition.Show();
+            this.boxFriendsRecomendatition.Top = this.boxExploreFriends.Top;
             this.activeSidebar.Top = this.friendsRecomendation.Top;
             this.activeSidebar.Height = this.friendsRecomendation.Height;
             foreach (Node person in Parser.result.persons)
