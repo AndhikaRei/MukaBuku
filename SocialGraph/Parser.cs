@@ -27,6 +27,8 @@ namespace ParserComponent
                 if (!uniqueName.Contains(edges[1]))
                     uniqueName.Add(edges[1]);
             }
+
+            uniqueName.Sort();
             List<Node> persons = new List<Node>();
             
             foreach (string person in uniqueName)
