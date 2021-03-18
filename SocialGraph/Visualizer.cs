@@ -56,6 +56,7 @@ namespace SocialGraph
         {
             //create a graph object 
             Microsoft.Msagl.Drawing.Graph graph = new Microsoft.Msagl.Drawing.Graph("graph");
+            graph.Attr.AspectRatio = 4;
             //create the graph content 
             foreach (Node person in G.persons)
             {

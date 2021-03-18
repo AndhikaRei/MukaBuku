@@ -31,7 +31,6 @@ namespace SocialGraph
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.buttonBrowse = new System.Windows.Forms.Button();
-            this.graphgui2 = new SocialGraph.GraphGUI();
             this.buttonEnter = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.activeSidebar = new System.Windows.Forms.Panel();
@@ -62,6 +61,7 @@ namespace SocialGraph
             this.dropdownRecommend = new System.Windows.Forms.ComboBox();
             this.boxMasukkanGraf = new System.Windows.Forms.GroupBox();
             this.creator1 = new SocialGraph.Creator();
+            this.graphgui2 = new SocialGraph.GraphGUI();
             this.panel1.SuspendLayout();
             this.boxExploreFriends.SuspendLayout();
             this.boxFriendsRecomendatition.SuspendLayout();
@@ -87,20 +87,6 @@ namespace SocialGraph
             this.buttonBrowse.Text = "Browse";
             this.buttonBrowse.UseVisualStyleBackColor = true;
             this.buttonBrowse.Click += new System.EventHandler(this.buttonBrowse_Click);
-            // 
-            // graphgui2
-            // 
-            this.graphgui2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.graphgui2.AutoSize = true;
-            this.graphgui2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.graphgui2.Location = new System.Drawing.Point(214, 162);
-            this.graphgui2.Margin = new System.Windows.Forms.Padding(11, 10, 11, 10);
-            this.graphgui2.Name = "graphgui2";
-            this.graphgui2.Size = new System.Drawing.Size(797, 336);
-            this.graphgui2.TabIndex = 5;
-            this.graphgui2.Visible = false;
             // 
             // buttonEnter
             // 
@@ -468,6 +454,14 @@ namespace SocialGraph
             this.creator1.TabIndex = 14;
             this.creator1.Visible = false;
             // 
+            // graphgui2
+            // 
+            this.graphgui2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.graphgui2.Location = new System.Drawing.Point(204, 153);
+            this.graphgui2.Name = "graphgui2";
+            this.graphgui2.Size = new System.Drawing.Size(807, 345);
+            this.graphgui2.TabIndex = 26;
+            // 
             // GUI_Mukabuku
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -476,9 +470,9 @@ namespace SocialGraph
             this.Controls.Add(this.boxFriendsRecomendatition);
             this.Controls.Add(this.boxExploreFriends);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.graphgui2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.boxMasukkanGraf);
+            this.Controls.Add(this.graphgui2);
             this.Name = "GUI_Mukabuku";
             this.Text = "GUI Mukabuku";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -491,7 +485,6 @@ namespace SocialGraph
             this.boxMasukkanGraf.ResumeLayout(false);
             this.boxMasukkanGraf.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -499,7 +492,6 @@ namespace SocialGraph
 
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button buttonBrowse;
-        private GraphGUI graphgui2;
         private System.Windows.Forms.Button buttonEnter;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
@@ -531,6 +523,7 @@ namespace SocialGraph
         private System.Windows.Forms.RichTextBox textRecomens;
         private Creator creator1;
         private System.Windows.Forms.Button buttonExplore;
+        private GraphGUI graphgui2;
     }
 }
 
