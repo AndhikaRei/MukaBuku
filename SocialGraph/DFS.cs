@@ -13,8 +13,8 @@ public class DFS
         // Stack dari simpul hidup, digunakan untuk backtracking 
         Stack<Stack<Node>> Stack_person = new Stack<Stack<Node>>();
 
-//        //List string yang telah dikunjungi
-//        List<string> has_visited = new List<string>();
+        //        //List string yang telah dikunjungi
+        List<string> has_visited = new List<string>();
 
         // inisiasi stack dengan elemen awal 
         Node current_person = person;
@@ -85,5 +85,5 @@ public class DFS
         }
         return has_visited;
 
-//    }
-//}
+    }
+}
