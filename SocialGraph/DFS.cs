@@ -7,11 +7,11 @@ public class DFS
 {
     public static List<string> exploreFriend(Graph G, Node person, Node second_person, out bool found)
     {
-        found false;
+        found = false;
         // Stack dari simpul yang bisa dikunjungi oleh current_person
         Stack<Node> simpul_hidup = new Stack<Node>();
         // Stack dari simpul hidup, digunakan untuk backtracking 
-        Stack<simpul_hidup> Stack_person = new Stack<simpul_hidup>();
+        Stack<Stack<Node>> Stack_person = new Stack<Stack<Node>>();
 
         //List string yang telah dikunjungi
         List<string> has_visited = new List<string>();
@@ -21,7 +21,7 @@ public class DFS
         simpul_hidup.Push(current_person);
         //Stack_person.Push(simpul_hidup);
 
-        while (!current_person.getName().Equals(second_person.name))
+        while (!current_person.name.Equals(second_person.name))
         {
 
             //jika current_person adalah null 
@@ -31,7 +31,7 @@ public class DFS
                 Stack<Node> deleted = Stack_person.Pop();
 
                 //ambil stack yang baru 
-                Stack<Node> simpul_hidup = Stack_person.Pop();
+                simpul_hidup = Stack_person.Pop();
 
             }
             else
@@ -46,7 +46,7 @@ public class DFS
                     simpul_hidup1.Push(second_node);
                 }
                 // Stack dari simpul yang bisa dikunjungi oleh current_person
-                Stack<Node> simpul_hidup = new Stack<Node>();
+                simpul_hidup = new Stack<Node>();
                 foreach (Node reverse in simpul_hidup)
                 {
                     simpul_hidup.Push(reverse);
@@ -54,7 +54,7 @@ public class DFS
             }
 
             //tandai telah dikunjungi 
-            has_visited.Add(current_person.getName());
+            has_visited.Add(current_person.name);
 
 
             // ASUMSI SAMPAI SINI UDAH DAPAT STACK UNTUK KE SIMPUL SELANJUTNYA 
@@ -68,12 +68,13 @@ public class DFS
                 current_person = simpul_hidup.Pop();
                 foreach (string visited in has_visited)
                 {
-                    if (current_person.getName().Equals(visited))
+                    if (current_person.name.Equals(visited))
                     {
                         visit = true;
                     }
                 }
             }
+            //sampai sini udah dapet current person yang belum pernah dikunjungi 
             
             // sisa simpul hidup dimasukkan ke dalam stack 
             Stack_person.Push(simpul_hidup);
@@ -81,12 +82,8 @@ public class DFS
             // inisiasi boolean apakah nanti harus backtracking atau tidak 
             bool backtracking = false;
 
-       
-
-
-
         }
-
+        return has_visited;
 
     }
 }
