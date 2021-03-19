@@ -30,7 +30,7 @@ public class BFS
         var sortedDict = from entry in recommend orderby entry.Value descending select entry;
 
         string output = "";
-        foreach (var second_friend in recommend)
+        foreach (var second_friend in sortedDict)
         {
             output += second_friend.Key + "\n" + second_friend.Value + " mutual "; 
             if (second_friend.Value == 1)
