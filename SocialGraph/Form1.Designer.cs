@@ -457,9 +457,9 @@ namespace SocialGraph
             // graphgui2
             // 
             this.graphgui2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.graphgui2.Location = new System.Drawing.Point(204, 153);
+            this.graphgui2.Location = new System.Drawing.Point(204, 150);
             this.graphgui2.Name = "graphgui2";
-            this.graphgui2.Size = new System.Drawing.Size(807, 345);
+            this.graphgui2.Size = new System.Drawing.Size(807, 357);
             this.graphgui2.TabIndex = 26;
             // 
             // GUI_Mukabuku
