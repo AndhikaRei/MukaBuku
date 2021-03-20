@@ -94,18 +94,25 @@ public class DFS
 
             // jika current person sudah pernah dikunjungi tidak usah di eksekusi
             // ambil orang selanjutnya yang akan di proses
+            Element old_person = current_person;
+
             if (Stack_person.Count > 0)
             {
                 current_person = Stack_person.Peek();
             }
 
             // skip jika ada di has_visited
+            int jumlah_pop = 0;
             while (Stack_person.Count > 0 && has_visited.Exists(e => e.Equals(current_person.getName()))){
                 current_person = Stack_person.Pop(); // buang
                 current_person = Stack_person.Peek(); // next el
+                jumlah_pop += 1;
             }
-                
-            current_person.connection = way;
+            jumlah_pop += 2;
+            if (old_person.connection.Count() >= jumlah_pop)
+            {
+                current_person.connection = way;
+            }
         }
 
         current_person.connection.Add(current_person.getName());
