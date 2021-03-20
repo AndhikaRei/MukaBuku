@@ -2,19 +2,19 @@
 using GraphComponent;
 using System;
 
-namespace ElementQueue
+namespace El
 {
-    class ElQueue
+    class Element
     {
         public Node person;
         public List<string> connection;
-        public ElQueue()
+        public Element()
         {
             this.person = new Node();
             this.connection = new List<string>();
         }
 
-        public ElQueue(Node new_person)
+        public Element(Node new_person)
         {
             //person.name = new_person.name; 
             //foreach (string pname in new_person.friends)
