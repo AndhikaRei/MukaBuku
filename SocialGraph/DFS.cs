@@ -33,6 +33,11 @@ public class DFS
                 Node second_node = G.persons.Find(p => p.name.Equals(friend));
                 // push ke dalam simpul hidup yang baru
                 ElQueue second_el = new ElQueue(second_node);
+                foreach (string second_friend in current_person.connection)
+                {
+                    second_el.addConnection(second_friend);
+                }
+                second_el.addConnection(current_person.getName());
                 Stack_person.Push(second_el);
             }
 

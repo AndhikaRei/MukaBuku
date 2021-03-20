@@ -83,6 +83,7 @@ public class BFS
             
         }
 
+        current_person.addConnection(current_person.getName());
         if (current_person.getName().Equals(second_person.name))
         {
             found = true;
