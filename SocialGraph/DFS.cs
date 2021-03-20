@@ -55,6 +55,7 @@ public class DFS
     public static List<string> exploreFriend(Graph G, Node person, Node second_person, out bool found)
     {
         found = false;
+        bool not_exist;
         // Stack berisi Element
         Stack<Element> Stack_person = new Stack<Element>();
 
@@ -75,26 +76,35 @@ public class DFS
             List<string> reverse = current_person.person.friends;
             reverse.Reverse();
             // push ke dalam simpul hidup yang baru
+            
             foreach (string friend in reverse)
             {
-                Node second_node = G.persons.Find(p => p.name.Equals(friend));
-                // push ke dalam simpul hidup yang baru
-                Element second_el = new Element(second_node);
-                foreach (string second_friend in current_person.connection)
+                not_exist = true;
+                foreach(string visit in has_visited)
                 {
-                    second_el.addConnection(second_friend);
+                    if (friend == visit)
+                    {
+                        not_exist = false;
+                    }
                 }
-                second_el.addConnection(current_person.getName());
-                Stack_person.Push(second_el);
+                if (not_exist)
+                {
+                    Node second_node = G.persons.Find(p => p.name.Equals(friend));
+                    // push ke dalam simpul hidup yang baru
+                    Element second_el = new Element(second_node);
+                    foreach (string second_friend in current_person.connection)
+                    {
+                        second_el.addConnection(second_friend);
+                    }
+                    second_el.addConnection(current_person.getName());
+                    Stack_person.Push(second_el);
+                }   
             }
-
-            List<string> way = current_person.connection;
-            way.Add(current_person.person.name);
             // ASUMSI SAMPAI SINI UDAH DAPAT STACK UNTUK KE SIMPUL SELANJUTNYA 
 
             // jika current person sudah pernah dikunjungi tidak usah di eksekusi
             // ambil orang selanjutnya yang akan di proses
-            Element old_person = current_person;
+            
 
             if (Stack_person.Count > 0)
             {
@@ -102,17 +112,13 @@ public class DFS
             }
 
             // skip jika ada di has_visited
-            int jumlah_pop = 0;
+            
             while (Stack_person.Count > 0 && has_visited.Exists(e => e.Equals(current_person.getName()))){
                 current_person = Stack_person.Pop(); // buang
                 current_person = Stack_person.Peek(); // next el
-                jumlah_pop += 1;
             }
-            jumlah_pop += 2;
-            if (old_person.connection.Count() >= jumlah_pop)
-            {
-                current_person.connection = way;
-            }
+           
+            
         }
 
         current_person.connection.Add(current_person.getName());
