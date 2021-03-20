@@ -372,7 +372,7 @@ namespace SocialGraph
             this.boxFriendsRecomendatition.Controls.Add(this.dropdownRecommend);
             this.boxFriendsRecomendatition.Location = new System.Drawing.Point(203, 150);
             this.boxFriendsRecomendatition.Name = "boxFriendsRecomendatition";
-            this.boxFriendsRecomendatition.Size = new System.Drawing.Size(718, 348);
+            this.boxFriendsRecomendatition.Size = new System.Drawing.Size(724, 348);
             this.boxFriendsRecomendatition.TabIndex = 27;
             this.boxFriendsRecomendatition.TabStop = false;
             this.boxFriendsRecomendatition.Text = "Friends Recomendation";
@@ -382,7 +382,7 @@ namespace SocialGraph
             // 
             this.textRecomens.Location = new System.Drawing.Point(229, 18);
             this.textRecomens.Name = "textRecomens";
-            this.textRecomens.Size = new System.Drawing.Size(471, 313);
+            this.textRecomens.Size = new System.Drawing.Size(474, 313);
             this.textRecomens.TabIndex = 25;
             this.textRecomens.Text = "";
             // 
@@ -416,7 +416,6 @@ namespace SocialGraph
             this.personText.Size = new System.Drawing.Size(86, 15);
             this.personText.TabIndex = 18;
             this.personText.Text = "Choose Person";
-            this.personText.Visible = false;
             this.personText.Click += new System.EventHandler(this.label1_Click_3);
             // 
             // dropdownRecommend
@@ -457,9 +456,9 @@ namespace SocialGraph
             // graphgui2
             // 
             this.graphgui2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.graphgui2.Location = new System.Drawing.Point(204, 153);
+            this.graphgui2.Location = new System.Drawing.Point(204, 150);
             this.graphgui2.Name = "graphgui2";
-            this.graphgui2.Size = new System.Drawing.Size(807, 345);
+            this.graphgui2.Size = new System.Drawing.Size(805, 357);
             this.graphgui2.TabIndex = 26;
             // 
             // GUI_Mukabuku

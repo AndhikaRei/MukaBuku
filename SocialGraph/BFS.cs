@@ -91,8 +91,7 @@ public class BFS
         else
         {
             found = true;
-            foreach (string name in current_person.connection)
-            {
+            foreach (string name in current_person.connection){
                 output.Add(name);
             }
             output.Add(current_person.getName());

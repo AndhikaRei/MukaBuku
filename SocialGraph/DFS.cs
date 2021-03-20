@@ -11,7 +11,7 @@ public class DFS
         // Stack berisi elqueue
         Stack<ElQueue> Stack_person = new Stack<ElQueue>();
 
-        //List string yang telah dikunjungi
+        //        //List string yang telah dikunjungi
         List<string> has_visited = new List<string>();
 
         // inisiasi stack dengan elemen awal 
