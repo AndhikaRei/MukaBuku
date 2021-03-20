@@ -173,7 +173,7 @@ namespace SocialGraph
                     this.pesanEksplore.Text=("Tidak ada jalur koneksi yang tersedia ");
                 }
             } else if (this.Dfsbutton.Checked){
-                List<string> path = BFS.exploreFriend(Parser.result, person1, person2, out found);
+                List<string> path = DFS.exploreFriend(Parser.result, person1, person2, out found);
                 if (found)
                 {
                     Visualizer.visualExplore(Parser.result, path);
