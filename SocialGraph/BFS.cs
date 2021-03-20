@@ -83,20 +83,10 @@ public class BFS
             
         }
 
-        List<string> output = new List<string>();
-        if (!current_person.getName().Equals(second_person.name))
-        {
-            return output;
-        }
-        else
+        if (current_person.getName().Equals(second_person.name))
         {
             found = true;
-            foreach (string name in current_person.connection){
-                output.Add(name);
-            }
-            output.Add(current_person.getName());
-            return output;
         }
-        
+        return current_person.connection;        
     }
 }

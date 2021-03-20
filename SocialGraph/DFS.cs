@@ -16,52 +16,48 @@ public class DFS
 
         // inisiasi stack dengan elemen awal 
         ElQueue current_person = new ElQueue(person);
+        Stack_person.Push(current_person);
      
-        while (!current_person.getName().Equals(second_person.name))
+        while (!current_person.getName().Equals(second_person.name) && Stack_person.Count > 0)
         {
-
-            // Stack dari simpul yang bisa dikunjungi oleh current_person
-            Stack<ElQueue> simpul_hidup = new Stack<ElQueue>();
+            // nambah has visited
+            has_visited.Add(current_person.getName());
+            // pop
+            current_person = Stack_person.Pop();
+            // reverse list of string
+            List<string> reverse = current_person.person.friends;
+            reverse.Reverse();
             // push ke dalam simpul hidup yang baru
-            foreach (String friend in current_person.person.friends)
+            foreach (String friend in reverse)
             {
                 Node second_node = G.persons.Find(p => p.name.Equals(friend));
                 // push ke dalam simpul hidup yang baru
-                ElQueue second_queue = new ElQueue(second_node);
-                simpul_hidup.Push(second_queue);
+                ElQueue second_el = new ElQueue(second_node);
+                Stack_person.Push(second_el);
             }
-
-            foreach (ElQueue reverse in simpul_hidup)
-            {
-                Stack_person.Push(reverse);
-            }
-
-            //tandai telah dikunjungi 
-            has_visited.Add(current_person.person.name);
 
 
             // ASUMSI SAMPAI SINI UDAH DAPAT STACK UNTUK KE SIMPUL SELANJUTNYA 
 
             // jika current person sudah pernah dikunjungi tidak usah di eksekusi
             // ambil orang selanjutnya yang akan di proses
-            bool visit = true;
-            while (visit)
+            if (Stack_person.Count > 0)
             {
-                visit = false;
-                current_person = Stack_person.Pop();
-                foreach (string visited in has_visited)
-                {
-                    if (current_person.person.name.Equals(visited))
-                    {
-                        visit = true;
-                    }
-                }
+                current_person = Stack_person.Peek();
             }
-            //sampai sini udah dapet current person yang belum pernah dikunjungi 
-            
-        }
-        has_visited.Add(current_person.person.name);
-        return has_visited;
 
+            // skip jika ada di has_visited
+            while (Stack_person.Count > 0 && has_visited.Exists(e => e.Equals(current_person.getName()))){
+                current_person = Stack_person.Pop(); // buang
+                current_person = Stack_person.Peek(); // next el
+            }            
+        }
+
+        current_person.connection.Add(current_person.getName());
+        if (current_person.getName().Equals(second_person.name))
+        {
+            found = true;
+        }
+        return current_person.connection;
     }
 }
