@@ -54,6 +54,9 @@ namespace SocialGraph
             this.buttonSubmitExplore = new System.Windows.Forms.Button();
             this.alertExplore = new System.Windows.Forms.Label();
             this.boxFriendsRecomendatition = new System.Windows.Forms.GroupBox();
+            this.textPilihMenuRekomen = new System.Windows.Forms.Label();
+            this.BFSbuttonRekomen = new System.Windows.Forms.RadioButton();
+            this.DFSbuttonRekomen = new System.Windows.Forms.RadioButton();
             this.textRecomens = new System.Windows.Forms.RichTextBox();
             this.buttonRecommen = new System.Windows.Forms.Button();
             this.alertRecomen = new System.Windows.Forms.Label();
@@ -76,7 +79,6 @@ namespace SocialGraph
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(657, 23);
             this.textBox1.TabIndex = 0;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // buttonBrowse
             // 
@@ -206,7 +208,6 @@ namespace SocialGraph
             this.label2.TabIndex = 10;
             this.label2.Text = "MukaBuku";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // panel2
             // 
@@ -253,7 +254,6 @@ namespace SocialGraph
             this.person1Text.Size = new System.Drawing.Size(95, 15);
             this.person1Text.TabIndex = 14;
             this.person1Text.Text = "Choose Account";
-            this.person1Text.Click += new System.EventHandler(this.label1_Click_2);
             // 
             // person2Text
             // 
@@ -279,7 +279,7 @@ namespace SocialGraph
             this.boxExploreFriends.Controls.Add(this.dropdownPerson1);
             this.boxExploreFriends.Controls.Add(this.person2Text);
             this.boxExploreFriends.Controls.Add(this.dropdownPerson2);
-            this.boxExploreFriends.Location = new System.Drawing.Point(203, 29);
+            this.boxExploreFriends.Location = new System.Drawing.Point(202, 80);
             this.boxExploreFriends.Name = "boxExploreFriends";
             this.boxExploreFriends.Size = new System.Drawing.Size(786, 115);
             this.boxExploreFriends.TabIndex = 16;
@@ -359,24 +359,59 @@ namespace SocialGraph
             this.alertExplore.Size = new System.Drawing.Size(234, 34);
             this.alertExplore.TabIndex = 21;
             this.alertExplore.Text = "Masukkan orang yang akan dieksplor\r\nPastikan anda sudah memasukkan graf";
-            this.alertExplore.Click += new System.EventHandler(this.label1_Click_4);
             // 
             // boxFriendsRecomendatition
             // 
             this.boxFriendsRecomendatition.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.boxFriendsRecomendatition.Controls.Add(this.textPilihMenuRekomen);
+            this.boxFriendsRecomendatition.Controls.Add(this.BFSbuttonRekomen);
+            this.boxFriendsRecomendatition.Controls.Add(this.DFSbuttonRekomen);
             this.boxFriendsRecomendatition.Controls.Add(this.textRecomens);
             this.boxFriendsRecomendatition.Controls.Add(this.buttonRecommen);
             this.boxFriendsRecomendatition.Controls.Add(this.alertRecomen);
             this.boxFriendsRecomendatition.Controls.Add(this.personText);
             this.boxFriendsRecomendatition.Controls.Add(this.dropdownRecommend);
-            this.boxFriendsRecomendatition.Location = new System.Drawing.Point(203, 150);
+            this.boxFriendsRecomendatition.Location = new System.Drawing.Point(203, 148);
             this.boxFriendsRecomendatition.Name = "boxFriendsRecomendatition";
             this.boxFriendsRecomendatition.Size = new System.Drawing.Size(724, 348);
             this.boxFriendsRecomendatition.TabIndex = 27;
             this.boxFriendsRecomendatition.TabStop = false;
             this.boxFriendsRecomendatition.Text = "Friends Recomendation";
             this.boxFriendsRecomendatition.Visible = false;
+            // 
+            // textPilihMenuRekomen
+            // 
+            this.textPilihMenuRekomen.AutoSize = true;
+            this.textPilihMenuRekomen.BackColor = System.Drawing.SystemColors.Info;
+            this.textPilihMenuRekomen.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textPilihMenuRekomen.Location = new System.Drawing.Point(4, 126);
+            this.textPilihMenuRekomen.Name = "textPilihMenuRekomen";
+            this.textPilihMenuRekomen.Size = new System.Drawing.Size(219, 17);
+            this.textPilihMenuRekomen.TabIndex = 26;
+            this.textPilihMenuRekomen.Text = "Pilih algoritma yang ingin digunakan";
+            // 
+            // BFSbuttonRekomen
+            // 
+            this.BFSbuttonRekomen.AutoSize = true;
+            this.BFSbuttonRekomen.Location = new System.Drawing.Point(5, 150);
+            this.BFSbuttonRekomen.Name = "BFSbuttonRekomen";
+            this.BFSbuttonRekomen.Size = new System.Drawing.Size(44, 19);
+            this.BFSbuttonRekomen.TabIndex = 26;
+            this.BFSbuttonRekomen.TabStop = true;
+            this.BFSbuttonRekomen.Text = "BFS";
+            this.BFSbuttonRekomen.UseVisualStyleBackColor = true;
+            // 
+            // DFSbuttonRekomen
+            // 
+            this.DFSbuttonRekomen.AutoSize = true;
+            this.DFSbuttonRekomen.Location = new System.Drawing.Point(55, 150);
+            this.DFSbuttonRekomen.Name = "DFSbuttonRekomen";
+            this.DFSbuttonRekomen.Size = new System.Drawing.Size(45, 19);
+            this.DFSbuttonRekomen.TabIndex = 26;
+            this.DFSbuttonRekomen.TabStop = true;
+            this.DFSbuttonRekomen.Text = "DFS";
+            this.DFSbuttonRekomen.UseVisualStyleBackColor = true;
             // 
             // textRecomens
             // 
@@ -388,7 +423,7 @@ namespace SocialGraph
             // 
             // buttonRecommen
             // 
-            this.buttonRecommen.Location = new System.Drawing.Point(1, 129);
+            this.buttonRecommen.Location = new System.Drawing.Point(42, 184);
             this.buttonRecommen.Name = "buttonRecommen";
             this.buttonRecommen.Size = new System.Drawing.Size(140, 23);
             this.buttonRecommen.TabIndex = 23;
@@ -416,7 +451,6 @@ namespace SocialGraph
             this.personText.Size = new System.Drawing.Size(86, 15);
             this.personText.TabIndex = 18;
             this.personText.Text = "Choose Person";
-            this.personText.Click += new System.EventHandler(this.label1_Click_3);
             // 
             // dropdownRecommend
             // 
@@ -455,6 +489,9 @@ namespace SocialGraph
             // 
             // graphgui2
             // 
+            this.graphgui2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.graphgui2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.graphgui2.Location = new System.Drawing.Point(204, 150);
             this.graphgui2.Name = "graphgui2";
@@ -465,16 +502,15 @@ namespace SocialGraph
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1021, 507);
+            this.Controls.Add(this.boxExploreFriends);
             this.Controls.Add(this.creator1);
             this.Controls.Add(this.boxFriendsRecomendatition);
-            this.Controls.Add(this.boxExploreFriends);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.boxMasukkanGraf);
             this.Controls.Add(this.graphgui2);
             this.Name = "GUI_Mukabuku";
             this.Text = "GUI Mukabuku";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.boxExploreFriends.ResumeLayout(false);
@@ -523,6 +559,9 @@ namespace SocialGraph
         private Creator creator1;
         private System.Windows.Forms.Button buttonExplore;
         private GraphGUI graphgui2;
+        private System.Windows.Forms.Label textPilihMenuRekomen;
+        private System.Windows.Forms.RadioButton BFSbuttonRekomen;
+        private System.Windows.Forms.RadioButton DFSbuttonRekomen;
     }
 }
 

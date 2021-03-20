@@ -8,16 +8,21 @@ using System.Threading.Tasks;
 namespace ParserComponent
 {
     public class Parser
+    // Parser adalah kelas yang berguna untuk merubah input graf dari file external menjadi graf asli
     {
-        public static Graph result = new Graph();
-        public static int numOfEdge;
-        public static List<string> uniqueName;
-        public static string[] files;
+        public static Graph result = new Graph();   // graf hasil konversi, bersifat statik
+        public static int numOfEdge;                // jumlah edge yang ada, bersifat statik
+        public static List<string> uniqueName;      // kumpulan nama orang, bersifat statik
+        public static string[] files;               // container string untuk file, bersifat statik
         public void readFromFile(string name)
         {
+            // Baca seluruh baris dari file
             files = System.IO.File.ReadAllLines(name);
 
+            // Ambil baris pertama yang merupakan banyaknya hubungan pertemanan(edge)
             numOfEdge = Convert.ToInt32(files[0]);
+
+            // Buatlah list nama unik dan cari nama unik dengan looping
             uniqueName = new List<string>();
             for (int i = 1; i <= numOfEdge; i++)
             {
@@ -28,9 +33,11 @@ namespace ParserComponent
                     uniqueName.Add(edges[1]);
             }
 
+            // Urutkan untuk mempermudah pembuatan graf
             uniqueName.Sort();
             List<Node> persons = new List<Node>();
             
+            // Looping file sekali lagi untuk membaca hubungan persahabatan dari nama orang yang unik
             foreach (string person in uniqueName)
             {
                 List<string> friends = new List<string>();
@@ -46,6 +53,7 @@ namespace ParserComponent
                 persons.Add(new Node(person, friends));
                 
             }
+            // isi result dengan user-defined constructor untuk graf
             result = new Graph(persons);
         }
     }
