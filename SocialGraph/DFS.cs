@@ -20,7 +20,7 @@ public class DFS
      
         while (!current_person.getName().Equals(second_person.name) && Stack_person.Count > 0)
         {
-            // nambah has visited
+            // nambah has visited 
             has_visited.Add(current_person.getName());
             // pop
             current_person = Stack_person.Pop();
@@ -36,7 +36,8 @@ public class DFS
                 Stack_person.Push(second_el);
             }
 
-
+            List<string> way = current_person.connection;
+            way.Add(current_person.person.name);
             // ASUMSI SAMPAI SINI UDAH DAPAT STACK UNTUK KE SIMPUL SELANJUTNYA 
 
             // jika current person sudah pernah dikunjungi tidak usah di eksekusi
@@ -50,7 +51,9 @@ public class DFS
             while (Stack_person.Count > 0 && has_visited.Exists(e => e.Equals(current_person.getName()))){
                 current_person = Stack_person.Pop(); // buang
                 current_person = Stack_person.Peek(); // next el
-            }            
+            }
+                
+            current_person.connection = way;
         }
 
         current_person.connection.Add(current_person.getName());
