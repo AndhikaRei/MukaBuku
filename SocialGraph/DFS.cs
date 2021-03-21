@@ -113,9 +113,12 @@ public class DFS
 
             // skip jika ada di has_visited
             
-            while (Stack_person.Count > 0 && has_visited.Exists(e => e.Equals(current_person.getName()))){
+            while (Stack_person.Count() > 0 && has_visited.Exists(e => e.Equals(current_person.getName()))){
                 current_person = Stack_person.Pop(); // buang
-                current_person = Stack_person.Peek(); // next el
+                if (Stack_person.Count > 0)
+                {
+                    current_person = Stack_person.Peek(); // next el
+                }
             }
            
             
