@@ -47,13 +47,22 @@ namespace SocialGraph
             // Validasi input nama file, input tidak boleh kosong
             {
                 // Baca filenya, ubah ke graf, lalu tampilkan di layar
+                bool found;
                 Parser G = new Parser();
-                G.readFromFile(this.textBox1.Text);
-                Visualizer.visualNormal(Parser.result);
-                this.graphgui2.SuspendLayout();
-                removeGraphImage(graphgui2);
-                this.graphgui2.Controls.Add(Visualizer.NormalGraph);
-                this.graphgui2.ResumeLayout();
+                G.readFromFile(this.textBox1.Text, out found);
+                if (found)
+                {
+                    Visualizer.visualNormal(Parser.result);
+                    this.graphgui2.SuspendLayout();
+                    removeGraphImage(graphgui2);
+                    this.graphgui2.Controls.Add(Visualizer.NormalGraph);
+                    this.graphgui2.ResumeLayout();
+                } 
+                else
+                {
+                    MessageBox.Show("Tidak ada file dengan nama tersebut");
+                }
+                
             } 
             else
             // atau tampilkan pesan kesalahan

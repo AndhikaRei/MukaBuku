@@ -550,7 +550,6 @@ namespace SocialGraph
         private System.Windows.Forms.Label alertExplore;
         private System.Windows.Forms.Label alertRecomen;
         private System.Windows.Forms.TextBox pesanEksplore;
-        private System.Windows.Forms.GroupBox Hehe;
         private System.Windows.Forms.GroupBox boxMasukkanGraf;
         private System.Windows.Forms.Label textPilihMenu;
         private System.Windows.Forms.GroupBox boxFriendsRecomendatition;
