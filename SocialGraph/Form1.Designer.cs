@@ -483,7 +483,7 @@ namespace SocialGraph
             | System.Windows.Forms.AnchorStyles.Right)));
             this.creator1.Location = new System.Drawing.Point(197, 487);
             this.creator1.Name = "creator1";
-            this.creator1.Size = new System.Drawing.Size(824, 438);
+            this.creator1.Size = new System.Drawing.Size(823, 442);
             this.creator1.TabIndex = 14;
             this.creator1.Visible = false;
             // 

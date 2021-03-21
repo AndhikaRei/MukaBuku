@@ -30,6 +30,7 @@ namespace SocialGraph
             this.graphgui2.Hide();
             this.creator1.Hide();
             this.boxMasukkanGraf.Hide(); this.boxExploreFriends.Hide(); this.boxFriendsRecomendatition.Hide();
+            this.BackColor = Color.FromArgb(245, 245, 245);
         }
         public GUI_Mukabuku()
         // Inisialisasi GUI
@@ -37,7 +38,8 @@ namespace SocialGraph
             InitializeComponent();
             this.creator1.Show();
             this.creator1.Top = this.panel2.Bottom;
-            this.creator1.Height = this.panel1.Height;
+            this.creator1.Size = this.Size;
+            this.BackColor = Color.FromArgb(178, 8, 55);
         }
 
         private void buttonEnter_Clicked(object sender, EventArgs e)
@@ -107,7 +109,9 @@ namespace SocialGraph
             this.creator1.Show();
             this.creator1.Top = this.panel2.Bottom;
             this.activeSidebar.Top = this.creator.Top;
-            this.activeSidebar.Height = this.creator.Height; 
+            this.activeSidebar.Height = this.creator.Height;
+            this.creator1.Size = this.Size;
+            this.BackColor = Color.FromArgb(178,8,55);
         }
 
         private void friendsRecomendation_Click(object sender, EventArgs e)
