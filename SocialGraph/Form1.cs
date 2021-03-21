@@ -172,12 +172,15 @@ namespace SocialGraph
                     removeGraphImage(graphgui2);
                     this.graphgui2.Controls.Add(Visualizer.ExploreGraph);
                     this.graphgui2.ResumeLayout();
-                    this.pesanEksplore.Text = (path.Count-2)+" degree connection"; 
+                    string pathJoin = string.Join(" =>", path);
+                    this.pesanEksplore.Text = (path.Count-2)+" degree connection"+'\n' +pathJoin;
+                  
                 } 
                 else 
                 {
-                    this.pesanEksplore.Text=("Tidak ada jalur koneksi yang tersedia ");
+                    this.pesanEksplore.Text = ("Tidak ada jalur koneksi yang tersedia ");
                     removeGraphImage(graphgui2);
+                     
                 }
             } else if (this.Dfsbutton.Checked){
                 List<string> path = DFS.exploreFriend(Parser.result, person1, person2, out found);
@@ -188,11 +191,14 @@ namespace SocialGraph
                     removeGraphImage(graphgui2);
                     this.graphgui2.Controls.Add(Visualizer.ExploreGraph);
                     this.graphgui2.ResumeLayout();
-                    this.pesanEksplore.Text = (path.Count - 2) + " degree connection";
+                    string pathJoin = string.Join(" =>", path);
+                    this.pesanEksplore.Text = (path.Count - 2) + " degree connection" + '\n' + pathJoin;
+                    
                 } 
                 else
                 {
-                this.pesanEksplore.Text = ("Tidak ada jalur koneksi yang tersedia ");
+                    this.pesanEksplore.Text = ("Tidak ada jalur koneksi yang tersedia ");
+                    removeGraphImage(graphgui2);
                 }
             } 
             else
@@ -230,5 +236,7 @@ namespace SocialGraph
             }
             
         }
+
+        
     }
 }
