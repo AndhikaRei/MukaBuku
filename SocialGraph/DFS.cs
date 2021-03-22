@@ -7,28 +7,34 @@ public class DFS
 {
     public static string friendRecommendation(Graph G, Node person)
     {
-        Dictionary<string, int> recommend = new Dictionary<string, int>(); // Key of recommended friend dgn value jumlah mutual friend
+        // Key of recommended friend dgn value jumlah mutual friend
+        Dictionary<string, int> recommend = new Dictionary<string, int>(); 
         foreach (string friend in person.friends)
         {
-            Node second_person = G.persons.Find(p => p.name.Equals(friend)); // Node setiap person yg sudah berteman dgn person awal
+            // Node setiap person yg sudah berteman dgn person awal
+            Node second_person = G.persons.Find(p => p.name.Equals(friend)); 
             foreach (string second_friend in second_person.friends)
             {
-                if (!second_friend.Equals(person.name) && !person.friends.Exists(p => p.Equals(second_friend))) // Cek orang kedua itu bukan person awal dan ga temenan sm person awal
+                // Periksa apakah orang kedua itu bukan person awal dan ga temenan dengan person awal
+                if (!second_friend.Equals(person.name) && !person.friends.Exists(p => p.Equals(second_friend))) 
                 {
-                    if (!recommend.ContainsKey(second_friend)) // Kalo blm ada di list, tambah elemen baru
+                    // Belum ada di dictionary, tambah elemen baru
+                    if (!recommend.ContainsKey(second_friend)) 
                     {
                         recommend.Add(second_friend, 1);
                     }
-                    else // Kalo udah ada, tambah count aja
+                    else 
                     {
+                        // Ada di dictionary, tambah jumlah
                         recommend[second_friend]++;
                     }
                 }
             }
         }
-
+        // Urutkan dari jumlah terbanyak-tersedikit
         var sortedDict = from entry in recommend orderby entry.Value descending select entry;
 
+        // Container output
         string output = "";
         foreach (var second_friend in sortedDict)
         {
@@ -41,8 +47,10 @@ public class DFS
             {
                 output += "friends: ";
             }
-            Node newFriend = G.persons.Find(p => p.name.Equals(second_friend.Key)); // Nyari node  dgn name = second_friend
-            List<string> filtered = person.friends.FindAll(e => newFriend.friends.Exists(t => t.Equals(e))); // Ngefilter list jadi isinya mutual friend
+            // Mencari node dengan nama = second_friend
+            Node newFriend = G.persons.Find(p => p.name.Equals(second_friend.Key));
+            // Filter list friend node tersebut jadi isinya hanya mutual dengan person awal
+            List<string> filtered = person.friends.FindAll(e => newFriend.friends.Exists(t => t.Equals(e)));
             foreach (string name in filtered)
             {
                 output += name + " ";

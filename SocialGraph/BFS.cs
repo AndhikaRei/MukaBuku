@@ -30,30 +30,31 @@ public class BFS
             queue_count--;
         }
    
-        // Inisialisasi dictionary
-        Dictionary<string,int> recommend = new Dictionary<string,int>(); // Key of recommended friend dgn value jumlah mutual friend
+        // Key of recommended friend dgn value jumlah mutual friend
+        Dictionary<string,int> recommend = new Dictionary<string,int>(); 
         
         // Add queue ke dictionary jika element tersebut bukan person awal dan bukan friend person awal
         while (queue_person.Count > 0)
         {
             Node friend_recommend = queue_person.Dequeue();
-            if (!friend_recommend.name.Equals(person.name) && !person.friends.Exists(p => p.Equals(friend_recommend.name))){ 
-                // Kalo blm ada di list, tambah elemen baru
+            if (!friend_recommend.name.Equals(person.name) && !person.friends.Exists(p => p.Equals(friend_recommend.name))){
+                // Belum ada di dictionary, tambah elemen baru
                 if (!recommend.ContainsKey(friend_recommend.name)) 
                 {
                     recommend.Add(friend_recommend.name, 1);
                 }
-                else // Kalo udah ada, tambah count aja
+                else 
                 {
+                    // Ada di dictionary, tambah jumlah
                     recommend[friend_recommend.name]++;
                 }
             }
         }
 
-        // Urutkan dictionary dari count descending
+        // Urutkan dari jumlah terbanyak-tersedikit
         var sortedDict = from entry in recommend orderby entry.Value descending select entry;
 
-        // Forma output menjadi string sesuai spek
+        // Container output
         string output = "";
         foreach (var second_friend in sortedDict)
         {
@@ -67,9 +68,9 @@ public class BFS
                 output += "friends: ";
             }
             // Mencari node  dgn name = second_friend
-            Node newFriend = G.persons.Find(p => p.name.Equals(second_friend.Key)); 
+            Node newFriend = G.persons.Find(p => p.name.Equals(second_friend.Key));
 
-            // Ngefilter list friend menjadi list friend yang mutual friend dgn person awal
+            // Filter list friend node tersebut jadi isinya hanya mutual dengan person awal
             List<string> filtered = person.friends.FindAll(e => newFriend.friends.Exists(t => t.Equals(e))); 
             foreach (string name in filtered)
             {
@@ -112,7 +113,7 @@ public class BFS
                 // Menambah connection next_El dengan connection current_person
                 foreach (string past_friend in current_person.connection)
                 {
-                    next_El.addConnection(past_friend); // Nambah person2 sebelumnya ke list connection
+                    next_El.addConnection(past_friend);
                 }
 
                 // Menambah connection next_El dengan name current_person
