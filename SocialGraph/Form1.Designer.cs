@@ -46,10 +46,10 @@ namespace SocialGraph
             this.person1Text = new System.Windows.Forms.Label();
             this.person2Text = new System.Windows.Forms.Label();
             this.boxExploreFriends = new System.Windows.Forms.GroupBox();
+            this.pesanEksplore = new System.Windows.Forms.RichTextBox();
             this.buttonExplore = new System.Windows.Forms.Button();
             this.textPilihMenu = new System.Windows.Forms.Label();
             this.Dfsbutton = new System.Windows.Forms.RadioButton();
-            this.pesanEksplore = new System.Windows.Forms.TextBox();
             this.Bfsbutton = new System.Windows.Forms.RadioButton();
             this.buttonSubmitExplore = new System.Windows.Forms.Button();
             this.alertExplore = new System.Windows.Forms.Label();
@@ -233,7 +233,7 @@ namespace SocialGraph
             // dropdownPerson1
             // 
             this.dropdownPerson1.FormattingEnabled = true;
-            this.dropdownPerson1.Location = new System.Drawing.Point(395, 16);
+            this.dropdownPerson1.Location = new System.Drawing.Point(638, 18);
             this.dropdownPerson1.Name = "dropdownPerson1";
             this.dropdownPerson1.Size = new System.Drawing.Size(121, 23);
             this.dropdownPerson1.TabIndex = 12;
@@ -241,7 +241,7 @@ namespace SocialGraph
             // dropdownPerson2
             // 
             this.dropdownPerson2.FormattingEnabled = true;
-            this.dropdownPerson2.Location = new System.Drawing.Point(395, 48);
+            this.dropdownPerson2.Location = new System.Drawing.Point(638, 49);
             this.dropdownPerson2.Name = "dropdownPerson2";
             this.dropdownPerson2.Size = new System.Drawing.Size(121, 23);
             this.dropdownPerson2.TabIndex = 13;
@@ -249,7 +249,7 @@ namespace SocialGraph
             // person1Text
             // 
             this.person1Text.AutoSize = true;
-            this.person1Text.Location = new System.Drawing.Point(288, 19);
+            this.person1Text.Location = new System.Drawing.Point(525, 21);
             this.person1Text.Name = "person1Text";
             this.person1Text.Size = new System.Drawing.Size(95, 15);
             this.person1Text.TabIndex = 14;
@@ -258,7 +258,7 @@ namespace SocialGraph
             // person2Text
             // 
             this.person2Text.AutoSize = true;
-            this.person2Text.Location = new System.Drawing.Point(288, 53);
+            this.person2Text.Location = new System.Drawing.Point(540, 52);
             this.person2Text.Name = "person2Text";
             this.person2Text.Size = new System.Drawing.Size(80, 15);
             this.person2Text.TabIndex = 15;
@@ -268,10 +268,10 @@ namespace SocialGraph
             // 
             this.boxExploreFriends.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.boxExploreFriends.Controls.Add(this.pesanEksplore);
             this.boxExploreFriends.Controls.Add(this.buttonExplore);
             this.boxExploreFriends.Controls.Add(this.textPilihMenu);
             this.boxExploreFriends.Controls.Add(this.Dfsbutton);
-            this.boxExploreFriends.Controls.Add(this.pesanEksplore);
             this.boxExploreFriends.Controls.Add(this.Bfsbutton);
             this.boxExploreFriends.Controls.Add(this.buttonSubmitExplore);
             this.boxExploreFriends.Controls.Add(this.person1Text);
@@ -284,12 +284,20 @@ namespace SocialGraph
             this.boxExploreFriends.Size = new System.Drawing.Size(786, 115);
             this.boxExploreFriends.TabIndex = 16;
             this.boxExploreFriends.TabStop = false;
-            this.boxExploreFriends.Text = "Explore friends";
+            this.boxExploreFriends.Text = "Explore Friends";
             this.boxExploreFriends.Visible = false;
+            // 
+            // pesanEksplore
+            // 
+            this.pesanEksplore.Location = new System.Drawing.Point(6, 68);
+            this.pesanEksplore.Name = "pesanEksplore";
+            this.pesanEksplore.Size = new System.Drawing.Size(498, 42);
+            this.pesanEksplore.TabIndex = 26;
+            this.pesanEksplore.Text = "<Hasil Eksplore Pertemanan>";
             // 
             // buttonExplore
             // 
-            this.buttonExplore.Location = new System.Drawing.Point(395, 85);
+            this.buttonExplore.Location = new System.Drawing.Point(638, 85);
             this.buttonExplore.Name = "buttonExplore";
             this.buttonExplore.Size = new System.Drawing.Size(121, 23);
             this.buttonExplore.TabIndex = 25;
@@ -302,7 +310,7 @@ namespace SocialGraph
             this.textPilihMenu.AutoSize = true;
             this.textPilihMenu.BackColor = System.Drawing.SystemColors.Info;
             this.textPilihMenu.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textPilihMenu.Location = new System.Drawing.Point(545, 19);
+            this.textPilihMenu.Location = new System.Drawing.Point(285, 19);
             this.textPilihMenu.Name = "textPilihMenu";
             this.textPilihMenu.Size = new System.Drawing.Size(219, 17);
             this.textPilihMenu.TabIndex = 24;
@@ -311,7 +319,7 @@ namespace SocialGraph
             // Dfsbutton
             // 
             this.Dfsbutton.AutoSize = true;
-            this.Dfsbutton.Location = new System.Drawing.Point(545, 48);
+            this.Dfsbutton.Location = new System.Drawing.Point(285, 45);
             this.Dfsbutton.Name = "Dfsbutton";
             this.Dfsbutton.Size = new System.Drawing.Size(45, 19);
             this.Dfsbutton.TabIndex = 1;
@@ -319,18 +327,10 @@ namespace SocialGraph
             this.Dfsbutton.Text = "DFS";
             this.Dfsbutton.UseVisualStyleBackColor = true;
             // 
-            // pesanEksplore
-            // 
-            this.pesanEksplore.Location = new System.Drawing.Point(6, 72);
-            this.pesanEksplore.Name = "pesanEksplore";
-            this.pesanEksplore.Size = new System.Drawing.Size(234, 23);
-            this.pesanEksplore.TabIndex = 23;
-            this.pesanEksplore.Text = "<Hasil Eksplor>";
-            // 
             // Bfsbutton
             // 
             this.Bfsbutton.AutoSize = true;
-            this.Bfsbutton.Location = new System.Drawing.Point(596, 48);
+            this.Bfsbutton.Location = new System.Drawing.Point(336, 45);
             this.Bfsbutton.Name = "Bfsbutton";
             this.Bfsbutton.Size = new System.Drawing.Size(44, 19);
             this.Bfsbutton.TabIndex = 0;
@@ -354,7 +354,7 @@ namespace SocialGraph
             this.alertExplore.AutoSize = true;
             this.alertExplore.BackColor = System.Drawing.SystemColors.Info;
             this.alertExplore.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.alertExplore.Location = new System.Drawing.Point(6, 25);
+            this.alertExplore.Location = new System.Drawing.Point(6, 19);
             this.alertExplore.Name = "alertExplore";
             this.alertExplore.Size = new System.Drawing.Size(234, 34);
             this.alertExplore.TabIndex = 21;
@@ -549,7 +549,6 @@ namespace SocialGraph
         private System.Windows.Forms.ComboBox dropdownRecommend;
         private System.Windows.Forms.Label alertExplore;
         private System.Windows.Forms.Label alertRecomen;
-        private System.Windows.Forms.TextBox pesanEksplore;
         private System.Windows.Forms.GroupBox boxMasukkanGraf;
         private System.Windows.Forms.Label textPilihMenu;
         private System.Windows.Forms.GroupBox boxFriendsRecomendatition;
@@ -561,6 +560,7 @@ namespace SocialGraph
         private System.Windows.Forms.Label textPilihMenuRekomen;
         private System.Windows.Forms.RadioButton BFSbuttonRekomen;
         private System.Windows.Forms.RadioButton DFSbuttonRekomen;
+        private System.Windows.Forms.RichTextBox pesanEksplore;
     }
 }
 
