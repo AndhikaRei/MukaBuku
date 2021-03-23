@@ -286,6 +286,7 @@ namespace SocialGraph
             this.boxExploreFriends.TabStop = false;
             this.boxExploreFriends.Text = "Explore Friends";
             this.boxExploreFriends.Visible = false;
+            
             // 
             // pesanEksplore
             // 
