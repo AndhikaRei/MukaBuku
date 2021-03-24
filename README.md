@@ -1,7 +1,7 @@
 # Mukabuku Socialgraph
-Tugas Besar IF2211 Strategi Algoritma
-Program Studi Teknik Informatika
-Institut Teknologi Bandung
+Tugas Besar IF2211 Strategi Algoritma<br>
+Program Studi Teknik Informatika<br>
+Institut Teknologi Bandung<br>
 2021
 
 ## Description
