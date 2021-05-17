@@ -44,3 +44,12 @@ Program ini dibuat oleh:
 * Reihan Andhika Putra - 13519043
 * Kadek Dwi Bagus Ananta Udayana - 13519057
 * Ryo Richardo - 13519193
+
+## Screen Capture Creator Page
+![Screenshot](img/Creator.PNG)
+## Screen Capture Input Graf
+![Screenshot](img/Input.PNG)
+## Screen Capture Friend Exploration
+![Screenshot](img/Explore.PNG)
+## Screen Capture Friend Recomendation
+![Screenshot](img/Recomendation.PNG)
