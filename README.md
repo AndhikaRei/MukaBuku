@@ -41,8 +41,8 @@ Untuk menjalankan Mukabuku Socialgraph, ikuti langkah-langkah berikut:
 
 ## Author
 Program ini dibuat oleh:
-* Reihan Andhika Putra - 13519043
-* Kadek Dwi Bagus Ananta Udayana - 13519057
+* Reihan Andhika P - 13519043
+* Kadek Dwi Bagus A U - 13519057
 * Ryo Richardo - 13519193
 
 ## Screen Capture Creator Page
